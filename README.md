@@ -7,9 +7,10 @@ Most code substitutions documented here consist of replacing high-level APIs tha
 ### Table of Contents
 
 **iOS App Performance Cheatsheet** is sectioned into Markdown files by Objective-C framework:
-- [Foundation](Foundation.md)
-- [UIKit](UIKit.md)
-- [QuartzCore](QuartzCore.md)
+- [**Foundation**](Foundation.md)
+	- [NSFileManager](Foundation.md#nsfilemanager)
+- [**UIKit**](UIKit.md)
+- [**QuartzCore**](QuartzCore.md)
 
 ### Why is this on GitHub?
 
