@@ -10,6 +10,7 @@ Most code substitutions documented here consist of replacing high-level APIs tha
 - [**Foundation**](Foundation.md)
 	- [NSFileManager](Foundation.md#nsfilemanager)
 - [**UIKit**](UIKit.md)
+	- [UIImage](UIKit.md#uiimage)
 - [**QuartzCore**](QuartzCore.md)
 
 ### Why is this on GitHub?
