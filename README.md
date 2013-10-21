@@ -8,6 +8,7 @@ Most code substitutions documented here consist of replacing high-level APIs tha
 
 **iOS App Performance Cheatsheet** is sectioned into Markdown files by Objective-C framework:
 - [**Foundation**](Foundation.md)
+	- [NSDateFormatter](Foundation.md#nsdateformatter)
 	- [NSFileManager](Foundation.md#nsfilemanager)
 - [**UIKit**](UIKit.md)
 	- [UIImage](UIKit.md#uiimage)
