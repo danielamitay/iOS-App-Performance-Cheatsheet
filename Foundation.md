@@ -2,6 +2,7 @@
 
 - [NSDateFormatter](#nsdateformatter)
 - [NSFileManager](#nsfilemanager)
+- [NSObjCRuntime](#nsobjcruntime)
 
 ---
 
@@ -66,3 +67,24 @@ if (cpath && stat(cpath, &statbuf) == 0) {
     // etc
 }
 ```
+
+### NSObjCRuntime
+
+#####NSLog(NSString *format, ...)
+
+`NSLog()` writes messages to the Apple System Log facility. Written messages are presented in the debugger console when built and run via Xcode, in addition to the device's console log even in production. Additionally, `NSLog()` statements are serialized by the system and performed on the main thread. Even on fairly new iOS hardware, `NSLog()` takes a non-negligible amount of time while only providing debug value. As a result, it is recommended to use `NSLog()` as sparingly as possible in production.
+
+The following are commonly used log definitions that are used to selectively perform `NSLog()` in debug/production:
+
+```objective-c
+#ifdef DEBUG
+// Only log when attached to the debugger
+#    define DLog(...) NSLog(__VA_ARGS__)
+#else
+#    define DLog(...) /* */
+#endif
+// Always log, even in production
+#define ALog(...) NSLog(__VA_ARGS__)
+```
+
+[Source](http://iphoneincubator.com/blog/debugging/the-evolution-of-a-replacement-for-nslog)
