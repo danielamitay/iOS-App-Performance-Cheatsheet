@@ -3,6 +3,7 @@
 - [NSDateFormatter](#nsdateformatter)
 - [NSFileManager](#nsfilemanager)
 - [NSObjCRuntime](#nsobjcruntime)
+- [NSString](#nsstring)
 
 ---
 
@@ -88,3 +89,22 @@ The following are commonly used log definitions that are used to selectively per
 ```
 
 [Source](http://iphoneincubator.com/blog/debugging/the-evolution-of-a-replacement-for-nslog)
+
+### NSString
+
+#####+ (instancetype)stringWithFormat:(NSString *)format,, ...
+
+`NSString` creation is not particularly expensive, but when used in a tight loop (as dictionary keys, for example), `+[NSString stringWithFormat:]` performance can be improved dramatically by being replaced with `asprintf` or similar functions in C.
+
+```objective-c
+NSString *firstName = @"Daniel";
+NSString *lastName = @"Amitay";
+char *buffer;
+asprintf(&buffer, "Full name: %s %s", [firstName UTF8String], [lastName UTF8String]);
+NSString *fullName = [NSString stringWithCString:buffer encoding:NSUTF8StringEncoding];
+free(buffer);
+```
+
+#####- (instancetype)initWithFormat:(NSString *)format, ...
+
+See [`+[NSString stringWithFormat:]`](#-instancetypestringwithformatnsstring-format-)

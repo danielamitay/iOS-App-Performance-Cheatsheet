@@ -11,6 +11,7 @@ Most code substitutions documented here consist of replacing high-level APIs tha
 	- [NSDateFormatter](Foundation.md#nsdateformatter)
 	- [NSFileManager](Foundation.md#nsfilemanager)
 	- [NSObjCRuntime](Foundation.md#nsobjcruntime)
+	- [NSString](Foundation.md#nsstring)
 - [**UIKit**](UIKit.md)
 	- [UIImage](UIKit.md#uiimage)
 	- [UIView](UIKit.md#uiview)
