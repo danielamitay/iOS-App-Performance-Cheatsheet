@@ -16,6 +16,7 @@ Most code substitutions documented here consist of replacing high-level APIs tha
 	- [UIImage](UIKit.md#uiimage)
 	- [UIView](UIKit.md#uiview)
 - [**QuartzCore**](QuartzCore.md)
+	- [CALayer](QuartzCore.md#calayer)
 
 ### Why is this on GitHub?
 
