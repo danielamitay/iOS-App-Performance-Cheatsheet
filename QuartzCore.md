@@ -6,6 +6,18 @@
 
 ### CALayer
 
+#####@property BOOL drawsAsynchronously
+
+The `drawsAsynchronously` property causes the layer's `CGContext` to defer drawing to a background thread. This property will provide the greatest benefit when enabled on layers that are redrawn frequently.
+
+> When this property is set to YES, the graphics context used to draw the layer’s contents queues drawing commands and executes them on a background thread rather than executing them synchronously. Performing these commands asynchronously can improve performance in some apps. However, you should always measure the actual performance benefits before enabling this capability.
+
+[Source](https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CALayer_class/Introduction/Introduction.html#//apple_ref/occ/instp/CALayer/drawsAsynchronously)
+
+> Any drawing that you do in your delegate’s drawLayer:inContext: method or your view’s drawRect: method normally occurs synchronously on your app’s main thread. In some situations, though, drawing your content synchronously might not offer the best performance. If you notice that your animations are not performing well, you might try enabling the drawsAsynchronously property on your layer to move those operations to a background thread. If you do so, make sure your drawing code is thread safe.
+
+[Source](https://developer.apple.com/library/ios/documentation/Cocoa/Conceptual/CoreAnimation_guide/ImprovingAnimationPerformance/ImprovingAnimationPerformance.html)
+
 #####@property CGPathRef shadowPath
 
 When applying shadow properties to a `CALayer`, it is recommended to set the `shadowPath` of the layer so as to allow the system to cache the shadow and reduce the amount of drawing necessary. When modifying the layer's bounds, the `shadowPath` should be re-set.
