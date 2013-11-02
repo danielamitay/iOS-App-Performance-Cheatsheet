@@ -6,6 +6,20 @@
 
 ### CALayer
 
+#####@property BOOL allowsGroupOpacity
+
+As of iOS7, this property indicates whether or not the layer's sublayers inherit the layer's opacity. The primary use case for this functionality is when animating a layer's transparency (causing the opacity of subviews to be visible). However, if this rendering style is not needed for your use case, it can be disabled to improve performance.
+
+> When true, and the layer's opacity property is less than one, the layer is allowed to composite itself as a group separate from its parent. This gives the correct results when the layer contains multiple opaque components, but may reduce performance. 
+> 
+> The default value of the property is read from the boolean UIViewGroupOpacity property in the main bundle's Info.plist. If no value is found in the Info.plist the default value is YES for applications linked against the iOS 7 SDK or later and NO for applications linked against an earlier SDK.
+
+Source unavailable at this time. See `CALayer.h` in Xcode.
+
+> (Default on iOS 7 and later) Inherit the opacity of the superlayer. This option allows for more sophisticated rendering in the simulator but can have a noticeable impact on performance.
+
+[Source](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/iPhoneOSKeys.html#//apple_ref/doc/uid/TP40009252-SW6)
+
 #####@property BOOL drawsAsynchronously
 
 The `drawsAsynchronously` property causes the layer's `CGContext` to defer drawing to a background thread. This property will provide the greatest benefit when enabled on layers that are redrawn frequently.
