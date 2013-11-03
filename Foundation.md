@@ -9,7 +9,27 @@
 
 ### NSDateFormatter
 
-`NSDateFormatter` is expensive to setup, so it is advisable to reuse instances where possible.
+`NSDateFormatter` is not the only class that is expensive to setup, but it is expensive and utilized enough that Apple specifically recommends caching and reusing instances where possible.
+
+> Creating a date formatter is not a cheap operation. If you are likely to use a formatter frequently, it is typically more efficient to cache a single instance than to create and dispose of multiple instances. One approach is to use a static variable.
+
+[Source](https://developer.apple.com/library/ios/documentation/cocoa/Conceptual/DataFormatting/Articles/dfDateFormatting10_4.html)
+
+A common method of caching `NSDateFormatter`s is to use `-[NSThread threadDictionary]` (because `NSDateFormatter` is not thread-safe):
+
+```objective-c
++ (NSDateFormatter *)cachedDateFormatter {
+	NSMutableDictionary *threadDictionary = [[NSThread currentThread] threadDictionary];
+	NSDateFormatter *dateFormatter = [threadDictionary objectForKey:@"cachedDateFormatter"];
+    if (dateFormatter == nil) {
+        dateFormatter = [[NSDateFormatter alloc] init];
+        [dateFormatter setLocale:[NSLocale currentLocale]];
+        [dateFormatter setDateFormat: @"YYYY-MM-dd HH:mm:ss"];
+        [threadDictionary setObject:dateFormatter forKey:@"cachedDateFormatter"];
+    }
+    return dateFormatter;
+}
+```
 
 #####- (NSDate *)dateFromString:(NSString *)string
 
