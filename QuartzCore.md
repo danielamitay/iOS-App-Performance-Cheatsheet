@@ -51,7 +51,7 @@ layer.shadowPath = bezierPath.CGPath;
 
 #####@property BOOL shouldRasterize
 
-Setting a `CALayer`'s `shouldRasterize` property to `YES` can improve performance for layers that need to be drawn only once. This layer can still be moved, scaled, and transformed. If a layer needs to be redrawn often, then setting `shouldRasterize` to `TRUE` can actually hurt drawing performance, because the system will attempt to rasterize the layer after each draw.
+Setting a `CALayer`'s `shouldRasterize` property to `YES` can improve performance for layers that need to be drawn only once. This layer can still be moved, scaled, and transformed. If a layer needs to be redrawn often, then setting `shouldRasterize` to `YES` can actually hurt drawing performance, because the system will attempt to rasterize the layer after each draw.
 
 > When the value of this property is YES, the layer is rendered as a bitmap in its local coordinate space and then composited to the destination with any other content. Shadow effects and any filters in the filters property are rasterized and included in the bitmap.
 
